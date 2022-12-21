@@ -1,22 +1,19 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecretsshhhhh';
+// drops payload to be saved in to local storage. Creating the access token 
+require('dotenv').config()
+const secret = process.env.SECRET_TOKEN;
+
 const expiration = '2h';
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    // allows token to be sent via req.body, req.query, or headers
+
     let token = req.body.token || req.query.token || req.headers.authorization;
 
-    // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
-      token = token
-        .split(' ')
-        .pop()
-        .trim();
+      token = token.split(' ').pop().trim();
     }
-
-    console.log("token", token)
 
 
     if (!token) {
@@ -26,20 +23,18 @@ module.exports = {
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-    }
-    catch {
+
+    } catch {
+
       console.log('Invalid token');
     }
 
     return req;
   },
-  signToken: function ({ firstName, email, _id }) {
-    const payload = { firstName, email, _id };
 
-    return jwt.sign(
-      { data: payload },
-      secret,
-      { expiresIn: expiration }
-    );
-  }
+  signToken: function ({ email, username, _id }) {
+    const payload = { email, username, _id };
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+  },
+
 };
