@@ -33,7 +33,6 @@ const resolvers = {
 
         // delete category
 
-        // update category
 
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
