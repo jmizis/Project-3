@@ -1,5 +1,8 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+// const mongoose = require('mongoose');
+// added this
+const { Schema, model } = require('mongoose');
+// added this
+const dateFormat = require ('../utils/date')
 
 const toolSchema = new Schema({
   name: {
@@ -27,9 +30,16 @@ const toolSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Technician',
       required: true    
-    } 
+    },
+    
+    // added this
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
+    },
 });
 
-const Tools = mongoose.model('Tools', toolSchema);
+const Tools = model('Tools', toolSchema);
 
 module.exports = Tools;
