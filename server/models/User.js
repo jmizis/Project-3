@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+// added this
+const bcrypt = require('bcrypt');
+
 
 const { Schema } = mongoose;
 // might need an id here for login
@@ -16,7 +19,8 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   password: {
     type: String,
