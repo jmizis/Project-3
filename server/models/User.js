@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-
+// might need an id here for login
 const userSchema = new Schema({
   firstName: {
     type: String,

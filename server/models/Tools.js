@@ -13,7 +13,7 @@ const toolSchema = new Schema({
     },
   
   value: {
-      type: number ,
+      type: Number,
       required: true
     },
   
