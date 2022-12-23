@@ -61,7 +61,8 @@ function App() {
                 // element={<Signup />}
               />
               <Route 
-               // add routes here
+               // path="/tech"
+               // element={<Signup />}
               />
               <Route 
                 // add routes here

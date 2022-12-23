@@ -16,6 +16,7 @@ const resolvers = {
 
             return { token, user };
         },
+        // delete user
        
         // add tool JM
         // takes args/ finds user context/pushes new tool object into selected users tool array
@@ -84,6 +85,7 @@ const resolvers = {
 
         // delete category
 
+        // log out user
 
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
