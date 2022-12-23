@@ -43,9 +43,11 @@ const typeDefs = gql`
     }
 // the tool and technician are flipped? 
   type Mutation {
-        addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+      addUser(username: String!, email: String!, password: String!): Auth
 
         updateUser(firstName: String, lastName: String, email: String, password: String): User
+
+        login(email: String!, password: String!): Auth
 
         addTool(name: String!, description: String!, value: float!, category: [Category]): Tools
 
@@ -63,7 +65,7 @@ const typeDefs = gql`
 
         deleteCategory
         
-        login(email: String!, password: String!): Auth
+        
   }
 `;
 

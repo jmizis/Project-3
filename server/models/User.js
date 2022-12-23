@@ -1,20 +1,18 @@
 const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 // added this
 const bcrypt = require('bcrypt');
 
 
-const { Schema } = mongoose;
+
 // might need an id here for login
 const userSchema = new Schema({
-  firstName: {
+  username: {
     type: String,
     required: true,
-    trim: true
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
+    unique: true,
+    trim: true,
   },
   email: {
     type: String,
