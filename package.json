@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/jmizis/Project-3#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "react-bootstrap": "^2.7.0",
+    "react-icons": "^4.7.1",
+    "tailwind": "^4.0.0"
   }
 }
