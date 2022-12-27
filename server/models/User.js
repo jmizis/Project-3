@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-
+// added this 
+const Technician = require('./Technician')
+const Tool = require('./Tools')
 const { Schema } = mongoose;
 // added this
 const bcrypt = require('bcrypt');
@@ -23,7 +25,20 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+
+  // added this array of technician types
+  technician : [{
+    type: Schema.Types.ObjectId,  
+      ref: 'Technician',
+  }],
+
+  // added this array for tools
+  tool : [{
+    type: Schema.Types.ObjectId,  
+      ref: 'Tools',
+  }]
+
 });
 
 // set up pre-save middleware to create password

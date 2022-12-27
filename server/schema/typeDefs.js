@@ -27,6 +27,8 @@ const typeDefs = gql`
         lastName: String
         email: String
         password: String
+        technician: [Technician]
+        tool: [Tools]
     }
 
  type Auth {
@@ -49,15 +51,16 @@ const typeDefs = gql`
 
         login(email: String!, password: String!): Auth
 
-        addTool(name: String!, description: String!, value: float!, category: [Category]): Tools
+        addTool(name: String!, description: String!, value: float!, category: [String]): User
 
-        deleteTool
+        deleteTool(_id: ID): User
 
-        updateTool(name: String, description: String, value: float, category: [Category]): Tools
+        updateTool(name: String, description: String, value: float, category: [Category]): User
 
-        addTechnician(firstName: String!, lastName: String!): Technician
+        addTechnician(firstName: String!, lastName: String!): User
+        // updating the User and its returning the user with updated tech
 
-        deleteTechnician
+        deleteTechnician(_id: ID): User
 
         updateTechnician(firstName: String, lastName: String): Technician
 

@@ -17,15 +17,66 @@ const resolvers = {
             return { token, user };
         },
        
-        // add tool
+        // add tool JM
+        // takes args/ finds user context/pushes new tool object into selected users tool array
+        addTool: async (parent, args, context) => {
+            if (context.user){
+                const updateUser = await User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$push: {tool: args}},
+                    {new: true}
+
+                ) 
+                return updateUser
+            }
+            // might need to add auth error
+        },
+
         
         // delete tool
+        deleteTool: async (parent, {_id}, context) => {
+            if (context.user){
+                const updateUser = await User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$pull: {tool: _id}},
+                    {new: true}
+
+                ) 
+                return updateUser
+            }
+            // might need to add auth error
+        },
 
         // update tool
 
-        // add technician
+        // add technician (same as adding tool)
+        addTechnician: async (parent, args, context) => {
+            if (context.user){
+                const updateUser = await User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$push: {technician: args}},
+                    {new: true}
 
-        // delete technician
+                ) 
+                return updateUser
+            }
+            // might need to add auth error
+        },
+
+        // delete technician Finds tech by id and pulls from user tech array
+        deleteTechnician: async (parent, {_id}, context) => {
+            if (context.user){
+                const updateUser = await User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$pull: {technician: _id}},
+                    {new: true}
+
+                ) 
+                return updateUser
+            }
+            // might need to add auth error
+        },
+
 
         // update technician
 

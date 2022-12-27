@@ -30,38 +30,112 @@ export const ADD_CATEGORY = gql`
 mutation addCategory($name: String!)
 addCategory(name: $name){
     _id
+    name
 }
 `;
 
 
 export const ADD_TOOL = gql`
-  mutation addTool($name: String!) {
-    addTool(name: $name) {
+  mutation addTool($name: String!, $description: String!, $value: float!, $category: [String]) {
+    addTool(name: $name, description: $description, value: $value, category: $category ) {
       _id
-      name
-      description
-     value
-      category {
+      firstName
+      lastName
+      email
+      technician {
+        _id
+        firstName
+        lastName
+    
+      }
+      tool{
         _id
         name
+        description
+        value
+        category
+        technician
       }
     }
   }
 `;
 
-
-export const ADD_TECHNICIAN = gql`
-  mutation addTechnician($firstName: String!, $lastName: String!) {
-    addTechnician(firstname: $firstName, lastName: $lastName) {
+export const DELETE_TOOL = gql`
+  mutation deleteTool($_id: ID) {
+    deleteTool(_id: $_id) {
       _id
       firstName
       lastName
-     
+      email
       technician {
         _id
         firstName
         lastName
+    
       }
+      tool{
+        _id
+        name
+        description
+        value
+        category
+        technician
+      }
+    }
+  }
+`;
+export const ADD_TECHNICIAN = gql`
+  mutation addTechnician($firstName: String!, $lastName: String!) {
+    addTechnician(firstname: $firstName, lastName: $lastName) {
+        _id
+        firstName
+        lastName
+        email
+        technician {
+          _id
+          firstName
+          lastName
+      
+        }
+        tool{
+          _id
+          name
+          description
+          value
+          category
+          technician
+        }
+     
+      
+      
+    }
+  }
+`;
+
+export const DELETE_TECHNICIAN = gql`
+  mutation deleteTechnician($_id: ID) {
+    deleteTechnician(_id: $_id) {
+        _id
+        firstName
+        lastName
+        email
+        technician {
+          _id
+          firstName
+          lastName
+      
+        }
+        tool{
+          _id
+          name
+          description
+          value
+          category
+          technician
+        }
+     
+      
+      
     }
   }
 `;
