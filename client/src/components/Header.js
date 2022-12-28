@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from '../Navbar'
+// import Navbar from '../Navbar'
 
 
 
 const Header = () => {
   return (
       <header >
-      < Navbar />
+      {/* < Navbar /> */}
+      All i want is a wok
       </header>
     
   )
