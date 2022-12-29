@@ -1,7 +1,25 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
+
+type User {
+  _id: ID!
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  technician: [Technician]
+  tool: [Tools]
+}
+
+type Technician {
+  _id: ID!
+  firstName: String
+  lastName: String
+}
+
+
+ type Category {
         _id: ID!
         name: String
     }
@@ -15,21 +33,9 @@ const typeDefs = gql`
         technician: Technician
     }
 
-  type Technician {
-        _id: ID!
-        firstName: String
-        lastName: String
-    }
+  
 
-  type User {
-        _id: ID!
-        firstName: String
-        lastName: String
-        email: String
-        password: String
-        technician: [Technician]
-        tool: [Tools]
-    }
+ 
 
  type Auth {
         token: ID!
@@ -38,10 +44,13 @@ const typeDefs = gql`
     }
 
   type Query {
+
+     users: [User]
+      user(username: String!): User
         categories: [Category]
         tools(category: ID, name: String): [Tools]
         technician(tool: ID, name: String, value: float) [Technician]
-        user: User
+        
     }
 // the tool and technician are flipped? 
   type Mutation {
