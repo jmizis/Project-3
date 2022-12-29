@@ -7,8 +7,10 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Home from './pages/Home';
+import Header from './components/Header';
+// import Footer from './components/Footer';
+import { ChakraProvider } from '@chakra-ui/react';
 
 
 // add routes to js pages
@@ -39,43 +41,18 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    // <
+    
   
-    //  <ApolloProvider client={client}>
-      // <Router>
-      
-        <div>
-          {/* <Header /> */}
-          <div>
-            <Routes>
-              <Route 
-                path="/"
-                element={<Header />}
-              />
-              <Route 
-                // path="/login" 
-                // element={<Login />}
-              />
-              <Route 
-                // path="/signup" 
-                // element={<Signup />}
-              />
-              <Route 
-               // add routes here
-              />
-              <Route 
-                // add routes here
-              />
-              <Route 
-              path="/"
-                element={<Footer />}
-              />
-            </Routes>
-          </div>
-          {/* <Footer /> */}
-        </div>
-      // </Router>
-    // </ApolloProvider>
+     <ApolloProvider client={client}>
+      <ChakraProvider>
+        
+        <Router>
+          <>
+          <Header />
+          </>
+        </Router>
+       </ChakraProvider>
+     </ApolloProvider>
   );
 }
 
