@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
 import { Auth } from '../utils/auth';
+import { FormControl, FormLabel, FormHelperText, FormErrorMessage, Input } from '@chakra-ui/react';
+
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: ''});
@@ -36,8 +38,14 @@ const Login = (props) => {
     };
 
     return (
-        <main>
-            <div></div>
-        </main>
+        <FormControl>
+        <FormLabel>Email address</FormLabel>
+        <Input type='email' placeholder='Email'/>
+        <FormLabel>Password</FormLabel>
+        <Input type='password' placeholder='Password'/>
+        <FormHelperText>We'll never share your email.</FormHelperText>
+      </FormControl>// needs button
     )
-}
+};
+
+export default Login;
