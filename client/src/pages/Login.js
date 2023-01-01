@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // import { Link } from 'react-router-dom'; to link once logged in to the technician page
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
-import { Auth } from '../utils/auth';
+import AuthService from '../utils/auth';
 import { 
     FormControl, 
     FormLabel, 
@@ -35,7 +35,7 @@ const Login = () => {
             const { data } = await login({
                 variables: { ...loginFormState },
             });
-            Auth.login(data.login.token);
+            new AuthService.login(data.login.token);
         } catch (e) {
             console.log(e);
         }
