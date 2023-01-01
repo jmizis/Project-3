@@ -1,37 +1,46 @@
 // login page
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; to link once logged in to the technician page
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
 import { Auth } from '../utils/auth';
-import { FormControl, FormLabel, FormHelperText, FormErrorMessage, Input } from '@chakra-ui/react';
+import { 
+    FormControl, 
+    FormLabel, 
+    FormHelperText, 
+    Input, 
+    FormErrorMessage, 
+} from '@chakra-ui/react';
+import { Button } from 'bootstrap';
 
 
-const Login = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: ''});
-    const [login, {error, data}] = useMutation(LOGIN_USER);
+const Login = () => {
+    const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
+    const [login, {data}] = useMutation(LOGIN_USER);
 
-    const handleChange = (event) => {
+    const isError = data === '';
+
+    const handleLoginFormChange = (event) => {
         const { name, value } = event.target;
-        setFormState({
-            ...formState,
+        setLoginFormState({
+            ...loginFormState,
             [name]: value,
         });
     };
 
-    const handleFormSubmit = async (event) => {
+    const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+        console.log(loginFormState);
         try {
             const { data } = await login({
-                variables: { ...formState },
+                variables: { ...loginFormState },
             });
             Auth.login(data.login.token);
         } catch (e) {
             console.log(e);
         }
 
-        setFormState({
+        setLoginFormState({
             email: '',
             password: '',
         });
@@ -39,12 +48,41 @@ const Login = (props) => {
 
     return (
         <FormControl>
-        <FormLabel>Email address</FormLabel>
-        <Input type='email' placeholder='Email'/>
+            <FormLabel>Login</FormLabel>
+        <Input 
+            type='email' 
+            placeholder='Email'
+            value={loginFormState}
+            onChange={handleLoginFormChange}
+        />
+        {!isError ? (
+            <FormHelperText>
+                Enter a valid email.
+            </FormHelperText>
+        ) : (
+            <FormErrorMessage>
+                A valid email is required.
+            </FormErrorMessage>
+        )};
+
         <FormLabel>Password</FormLabel>
-        <Input type='password' placeholder='Password'/>
-        <FormHelperText>We'll never share your email.</FormHelperText>
-      </FormControl>// needs button
+        <Input 
+            type='password' placeholder='Password'
+            value={loginFormState}
+            onChange={handleLoginFormChange}
+            />
+        <Button
+            type='button'
+            onClick={handleLoginFormSubmit}
+            isLoading
+            loadingText='Submitting'
+            colorScheme='green.500'
+            variant='outline'
+            >
+                Inventory Awaits
+            </Button>
+
+      </FormControl>
     )
 };
 
