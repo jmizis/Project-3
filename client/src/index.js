@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
-// import { BrowserRouter } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -33,14 +33,14 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- <React.StrictMode>
-    {/* <BrowserRouter> */}
+  <React.StrictMode>
+    <BrowserRouter>
     <ApolloProvider client={client}>
-      <ChakraProvider>
-    <App />
-      </ChakraProvider>
-     </ApolloProvider>
-    {/* </BrowserRouter> */}
+   
+      <App />
+    
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>
   
 );
