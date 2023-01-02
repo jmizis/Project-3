@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 
 const httpLink = createHttpLink({
@@ -33,14 +33,14 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+ <React.StrictMode>
+    {/* <BrowserRouter> */}
     <ApolloProvider client={client}>
-    <ChakraProvider>
-      <App />
+      <ChakraProvider>
+    <App />
       </ChakraProvider>
-      </ApolloProvider>
-    </BrowserRouter>
+     </ApolloProvider>
+    {/* </BrowserRouter> */}
   </React.StrictMode>
   
 );
