@@ -1,9 +1,19 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { User, Tools, Technician } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
 const resolvers = {
     Query: {
+        users: async () => {
+            return User.find().populate('Tools');
+        },
+        tools: async (parent, {_id}, content) => {
+            return Tools.findOne({ _id }).populate('Tools')
+        }
+        
+
+
         // by catergory
         // by technician
         // by tool

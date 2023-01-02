@@ -33,9 +33,7 @@ type Technician {
         technician: Technician
     }
 
-  
 
- 
 
  type Auth {
         token: ID!
