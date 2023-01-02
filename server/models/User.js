@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 // added this 
 const Technician = require('./Technician')
 const Tool = require('./Tools')
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 // added this
 const bcrypt = require('bcrypt');
 
@@ -57,6 +57,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
     
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
