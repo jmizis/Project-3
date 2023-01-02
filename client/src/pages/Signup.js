@@ -63,7 +63,7 @@ export default function Signup() {
         </form>
         <button 
         type='button' 
-        OnClick={handleSignupFormSubmit}
+        onClick={handleSignupFormSubmit}
         ></button>
        </div>
       </div>

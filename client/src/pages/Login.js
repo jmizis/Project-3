@@ -1,10 +1,65 @@
 // login page
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';// allows mutations thru typedefs
+import { LOGIN_USER } from '../utils/mutations';// added thru mutations
+import AuthService from '../utils/auth';
 
 export default function Login() {
+  const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
+    const [login, {data}] = useMutation(LOGIN_USER);
+
+    // const isError = data === '';
+
+    const handleLoginFormChange = (event) => {
+        const { name, value } = event.target;
+        setLoginFormState({
+            ...loginFormState,
+            [name]: value,
+        });
+    };
+
+    const handleLoginFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(loginFormState);
+        try {
+            const { data } = await login({
+                variables: { ...loginFormState },
+            });
+            new AuthService.login(data.login.token);
+        } catch (e) {
+            console.log(e);
+        }
+
+        setLoginFormState({
+            email: '',
+            password: '',
+        });
+    };
   return (
-    <div>
-      <h2>test Login Page </h2>
+    <div className="container">
+      <div className="card-container">
+      <h2>Login to your TrackIt account</h2>
+      <div className="card">
+        <form>
+          <label>Email:
+            <input type='username' 
+                value={loginFormState} 
+                onChange={handleLoginFormChange}
+                /> 
+          </label>
+          <label>Password:
+            <input type='username' 
+                value={loginFormState} 
+                onChange={handleLoginFormChange}
+                /> 
+          </label>
+        </form>
+        <button 
+        type='button' 
+        OnClick={handleLoginFormSubmit}
+        ></button>
+       </div>
+      </div>
     </div>
   );
 }
