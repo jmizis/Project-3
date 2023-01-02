@@ -1,12 +1,13 @@
-import React from 'react'
-import Home from './pages/Home'
-import Technician from "./pages/Technician"
-import { Route, Routes } from "react-router-dom"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import Categories from "./pages/Categories"
-import Tools from "./pages/Tools"
-import Login from "./pages/Login"
+import React from 'react';
+import Home from './pages/Home';
+import Technician from "./pages/Technician";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Categories from "./pages/Categories";
+import Tools from "./pages/Tools";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
    
@@ -23,6 +24,7 @@ function App() {
             <Route path="/Categories" element={<Categories />} />
             <Route path="/Tools" element={<Tools />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/Signup" element={<Signup />} />
           </Routes>
         </main>
       </div>

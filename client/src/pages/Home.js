@@ -1,86 +1,59 @@
 // our home page or landing page. will need login page. 
 // needs to direct to login page and once creds are evaluated, this can lead to inventory input or pages to view inventory class? need to lock down these details. 
+
 import React from "react";
+import {Link, useMatch, useResolvedPath} from "react-router-dom";
 
-export default function Home() {
-  return (
-    <div>
-      <h2>test Home Page </h2>
-    </div>
-  );
-}
-
-// import { 
-//   Card, 
-//   CardHeader, 
-//   CardBody, 
-//   CardFooter, 
-//   SimpleGrid, 
-//   Heading, 
-//   Text, 
-//   Button 
-// } from '@chakra-ui/react'
 // import Login from './Login';
 // import Signup from './Signup';
 
-// const Home = () => {
-//   return (
+export default function Home() {
+  function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
    
-//     <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
-//   <Card>
-//     <CardHeader>
-//       <Heading 
-//       size='md'
-//       > 
-//       TrackIt Login 
-//       </Heading>
-//     </CardHeader>
-
-//     <CardBody>
-//       <Text>Login to view your tools</Text>
-//     </CardBody>
-
-//     <CardFooter>
-//       <Button 
-//         as='button' 
-//         onClick={Login}
-//         >
-//           Login
-//           </Button>
-//     </CardFooter>
-
-//   </Card>
-
-//   <Card>
-
-//     <CardHeader>
-//       <Heading 
-//         size='md'
-//         > 
-//         TrackIt Signup
-//         </Heading>
-//     </CardHeader>
-//     <CardBody>
-//       <Text>Please signup to access functionality</Text>
-//     </CardBody>
-//     <CardFooter>
-//       <Button 
-//         type="click" 
-//         onClick={Signup}
-//         >
-//           Signup
-//           </Button>
-//     </CardFooter>
-//   </Card>
-
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </li>
   
-// // </SimpleGrid>
-//     )
-//     // will need personal user dashboard might work here. ?
-// };
+    )
+}
+  return (
+    
+    <div className="container">
+      <div className="card-container">
+      <h2>Welcome To TrackIt</h2>
+        <div className="card">
+          <div className="card-heading">
+            TrackIt Login
+          </div>
+          <div className="card-body">
+            Login to view your tools
+          </div>
+          <div className="button-container">
+            <button type="submit" className="button">
+              <Link to="./login">Login</Link>
+            </button>
+          </div>
+        </div>
 
-// export default Home();
-
-
-
-
+        <div className="card">
+          <div className="card-heading">
+            TrackIt Signup
+          </div>
+          <div className="card-body">
+            Signup to create an account
+          </div>
+          <div className="button-container">
+            <button type="submit" className="button">
+              <Link to="./signup">Signup</Link>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/jmizis/Project-3#readme",
   "dependencies": {
-    "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "babel": "^6.23.0",

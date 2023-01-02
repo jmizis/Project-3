@@ -15,7 +15,8 @@ const nav = useState(false);
                     <Link to="/Categories">Category</Link>
                     <CustomLink to="/Tools">Tools</CustomLink>
                     <CustomLink to="/Technician">Technician</CustomLink>
-                    <CustomLink to="/Login">Login</CustomLink>                     
+                    <CustomLink to="/Login">Login</CustomLink> 
+                    <CustomLink to="/Signup">Signup</CustomLink>                  
                 </ul>
             </nav>       
         </div>
