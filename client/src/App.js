@@ -13,7 +13,8 @@ function App() {
   return (
     <>
       <Header />
-    
+     
+      
       <div className='bg-gradient-to-b from-black to-gray-800 md:h-screen text-white'>
         <main>
           <Routes>
