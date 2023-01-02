@@ -23,8 +23,8 @@ export default function Home() {
 }
   return (
     
-    <div>
-      <div className="container">
+    <div className="container">
+      <div className="card-container">
       <h2>Welcome To TrackIt</h2>
         <div className="card">
           <div className="card-heading">

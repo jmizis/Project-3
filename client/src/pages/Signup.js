@@ -1,57 +1,84 @@
 import { useState } from 'react';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
 
 export default function Signup() {
-  return (
-    <div>
-      <h2>test Signup page</h2>
+
+    const [signupState, setSignupState] = useState({
+        username: '',
+        email: '',
+        password: '',
+    });
+
+    const [addUser, {data}] = useMutation(ADD_USER);
+
+    // const isError = data === '';
+
+    const handleSignupFormChange = (event) => {
+        const { name, value } = event.target;
+
+        setSignupState({
+            ...signupState,
+            [name]: value,
+        });
+    };
+
+    const handleSignupFormSubmit = async (event) => {
+              event.preventDefault();
+              try{
+                  const { data } = await addUser({
+                      variables: { ...signupState},
+                  });
+                  Auth.login(data.addUser.token);
+              } catch (e) {
+                  console.log(e);
+              }
+          };
+
+    return (
+    <div className="container">
+      <div className="card-container">
+      <h2>Signup for a TrackIt account</h2>
+      <div className="card">
+        <form>
+          <label>Username:
+            <input type='username' 
+                value={signupState} 
+                onChange={handleSignupFormChange}
+                /> 
+          </label>
+          <label>Email:
+            <input type='username' 
+                value={signupState} 
+                onChange={handleSignupFormChange}
+                /> 
+          </label>
+          <label>Password:
+            <input type='username' 
+                value={signupState} 
+                onChange={handleSignupFormChange}
+                /> 
+          </label>
+        </form>
+        <button 
+        type='button' 
+        OnClick={handleSignupFormSubmit}
+        ></button>
+       </div>
+      </div>
     </div>
+  
   )
 };
-// // use Link to link pages in the app import from react-router-dom for that. 
-// import { ADD_USER } from '../utils/mutations';
-// import Auth from '../utils/auth';
-// import { useMutation } from '@apollo/client';
-
-
-// const Signup = () => {
-//     const [signupState, setSignupState] = useState({
-//         username: '',
-//         email: '',
-//         password: '',
-//     });
-
-//     const [addUser, {data}] = useMutation(ADD_USER);
-
-//     const isError = data === '';
-
-//     const handleSignupFormChange = (event) => {
-//         const { name, value } = event.target;
-
-//         setSignupState({
-//             ...signupState,
-//             [name]: value,
-//         });
-//     };
-
-//     const handleSignupFormSubmit = async (event) => {
-//         event.preventDefault();
-//         try{
-//             const { data } = await addUser({
-//                 variables: { ...signupState},
-//             });
-//             Auth.login(data.addUser.token);
-//         } catch (e) {
-//             console.log(e);
-//         }
-//     };
 
 //         <FormControl>
 //             <FormLabel>Signup for a TrackIt account</FormLabel>
             
 //             <Input 
-//                 type='username' 
-//                 value={signupState} 
-//                 onChange={handleSignupFormChange} 
+                // type='username' 
+                // value={signupState} 
+                // onChange={handleSignupFormChange} 
 //                 />
 //       {!isError ? (
 //         <FormHelperText>
