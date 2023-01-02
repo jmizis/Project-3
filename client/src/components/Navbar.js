@@ -2,16 +2,16 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import React, { useState } from 'react'
 
 export default function Navbar() {
-const [nav, setNav] = useState(false);
+const nav = useState(false);
     return (
-        <div>
+        <div >
             <nav >
-                <Link to="../" >Track It</Link>
+                <Link to="/" >Track It</Link>
                 <ul>
-                    <CustomLink to='/category'>Category</CustomLink>
-                    <CustomLink to='/tools'>Tools</CustomLink>
-                    <CustomLink to='/technician'>Technician</CustomLink>
-                    <CustomLink to='/login'>Login</CustomLink>                     
+                    <Link to="/Categories">Category</Link>
+                    <CustomLink to="/Tools">Tools</CustomLink>
+                    <CustomLink to="/Technician">Technician</CustomLink>
+                    <CustomLink to="/Login">Login</CustomLink>                     
                 </ul>
             </nav>       
         </div>

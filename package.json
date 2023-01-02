@@ -23,6 +23,13 @@
   },
   "homepage": "https://github.com/jmizis/Project-3#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "@chakra-ui/react": "^2.4.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "babel": "^6.23.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.31.0",
+    "framer-motion": "^6.5.1",
+    "react-router-dom": "^6.2.1"
   }
 }
