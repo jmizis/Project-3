@@ -1,7 +1,7 @@
 // login page
 import React, { useState } from 'react';
 
-export default function Home() {
+export default function Login() {
   return (
     <div>
       <h2>test Login Page </h2>
