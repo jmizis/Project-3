@@ -1,6 +1,6 @@
 // login page
 import React, { useState } from 'react';
-import Link from 'react-router-dom';
+import { Link }from 'react-router-dom';
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
 import AuthService from '../utils/auth';
@@ -9,7 +9,7 @@ export default function Login() {
   const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
     const [login, {data}] = useMutation(LOGIN_USER);
 
-    const isError = data === '';
+    // const isError = data === '';
 
     const handleLoginFormChange = (event) => {
         const { name, value } = event.target;
@@ -36,6 +36,7 @@ export default function Login() {
             password: '',
         });
     };
+
   return (
     <div className="container">
       <div className="card-container">
@@ -51,8 +52,9 @@ export default function Login() {
           <label>Email:
             <input
                 className="form-input"
-                placeholder="you@email.com"
+                placeholder="youremail@email.com"
                 type='email' 
+                name='email'
                 value={loginFormState.email} 
                 onChange={handleLoginFormChange}
                 /> 
@@ -62,6 +64,7 @@ export default function Login() {
                 className="form-input"
                 placeholder="******"
                 type='password' 
+                name='password'
                 value={loginFormState.password} 
                 onChange={handleLoginFormChange}
                 /> 

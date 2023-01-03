@@ -19,7 +19,7 @@ type Technician {
 }
 
 
- type Category {
+ type Equipment {
         _id: ID!
         name: String
     }
@@ -29,7 +29,7 @@ type Technician {
         name: String!
         description: String
         value: Float
-        category: Category
+        equipment: Equipment
         technician: Technician
     }
 
@@ -62,7 +62,7 @@ type Technician {
 
         deleteTool(_id: ID): User
 
-        updateTool(name: String, description: String, value: float, category: [Category]): User
+        updateTool(name: String, description: String, value: float): User
 
         addTechnician(firstName: String!, lastName: String!): User
         // updating the User and its returning the user with updated tech
@@ -71,7 +71,7 @@ type Technician {
 
         updateTechnician(firstName: String, lastName: String): Technician
 
-        addCategory(name: String): Category
+        
 
         deleteCategory
         

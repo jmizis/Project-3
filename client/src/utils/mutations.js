@@ -26,14 +26,14 @@ export const LOGIN_USER = gql`
 
 
 
-export const ADD_CATEGORY = gql`
-mutation addCategory($name: String!){
-      addCategory(name: $name){
-       _id
-       name
-    }
-  }
-`;
+// export const ADD_CATEGORY = gql`
+// mutation addCategory($name: String!){
+//       addCategory(name: $name){
+//        _id
+//        name
+//     }
+//   }
+// `;
 
 
 export const ADD_TOOL = gql`
@@ -54,7 +54,7 @@ export const ADD_TOOL = gql`
         name
         description
         value
-        category
+        equipment
         technician
       }
     }
