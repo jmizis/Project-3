@@ -27,6 +27,7 @@
     "@emotion/styled": "^11.10.5",
     "babel": "^6.23.0",
     "concurrently": "^7.6.0",
+    "debug": "^4.3.4",
     "eslint": "^8.31.0",
     "framer-motion": "^6.5.1",
     "react-router-dom": "^6.2.1",
