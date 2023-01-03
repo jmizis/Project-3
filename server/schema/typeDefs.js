@@ -23,7 +23,10 @@ type Technician {
         _id: ID!
         name: String
     }
-
+input CategoryInput{
+  _id: ID!
+  name: String
+}
   type Tools {
         _id: ID!
         name: String!
@@ -47,10 +50,10 @@ type Technician {
       user(username: String!): User
         categories: [Category]
         tools(category: ID, name: String): [Tools]
-        technician(tool: ID, name: String, value: float) [Technician]
+        technician(tool: ID, name: String, value: Float): [Technician]
         
     }
-// the tool and technician are flipped? 
+
   type Mutation {
       addUser(username: String!, email: String!, password: String!): Auth
 
@@ -58,14 +61,14 @@ type Technician {
 
         login(email: String!, password: String!): Auth
 
-        addTool(name: String!, description: String!, value: float!, category: [String]): User
+        addTool(name: String!, description: String!, value: Float!, category: [String]): User
 
         deleteTool(_id: ID): User
 
-        updateTool(name: String, description: String, value: float, category: [Category]): User
+        updateTool(name: String, description: String, value: Float, category: CategoryInput): User
 
         addTechnician(firstName: String!, lastName: String!): User
-        // updating the User and its returning the user with updated tech
+       
 
         deleteTechnician(_id: ID): User
 
@@ -73,7 +76,7 @@ type Technician {
 
         addCategory(name: String): Category
 
-        deleteCategory
+  
         
         
   }
