@@ -43,20 +43,31 @@ export default function Signup() {
       <div className="card">
         <form>
           <label>Username:
-            <input type='username' 
-                value={signupState} 
+            <input 
+                className="form-input"
+                placeholder="Jdoe"
+                type='username'
+                name='username' 
+                value={signupState.username} 
                 onChange={handleSignupFormChange}
                 /> 
           </label>
           <label>Email:
-            <input type='username' 
-                value={signupState} 
+            <input
+              className='form-input'
+              placeholder='youremail@email.com'
+              name='email'
+              type='email' 
+              value={signupState.email} 
                 onChange={handleSignupFormChange}
                 /> 
           </label>
           <label>Password:
-            <input type='username' 
-                value={signupState} 
+            <input 
+                className='form-input'
+                placeholder='******'
+                type='password' 
+                value={signupState.password} 
                 onChange={handleSignupFormChange}
                 /> 
           </label>
@@ -64,7 +75,9 @@ export default function Signup() {
         <button 
         type='button' 
         onClick={handleSignupFormSubmit}
-        ></button>
+        >
+          Signup
+        </button>
        </div>
       </div>
     </div>
