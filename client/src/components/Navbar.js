@@ -6,13 +6,13 @@ export default function Navbar() {
 const nav = useState(false);
     return (
 
-       <div class="flex justify-between items-center w-full h-20 align-middle text-white px-4 pt-4 bg-black">
-            <nav class="relative flex justify-between items-center w-full h-20">
+       <div className="flex justify-between items-center w-full h-20 align-middle text-white px-4 pt-4 bg-black">
+            <nav className="relative flex justify-between items-center w-full h-20">
 
-                <Link to="/" class="text  flex justify-between items-center w-full h-20 align-middle text-white px-25 pt-2 bg-black ">Track It</Link>
+                <Link to="/" className="text  flex justify-between items-center w-full h-20 align-middle text-white px-25 pt-2 bg-black ">Track It</Link>
 
                 <ul className="flex justify-between items-center w-full h-20 align-middle text-white px-4 pt-4 bg-black ">
-                    <Link to="/Categories">Category</Link>
+                    <Link to="/Equipment">Equipment</Link>
                     <CustomLink to="/Tools">Tools</CustomLink>
                     <CustomLink to="/Technician">Technician</CustomLink>
                     <CustomLink to="/Login">Login</CustomLink> 
