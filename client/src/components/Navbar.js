@@ -12,7 +12,6 @@ const nav = useState(false);
                 <Link to="/" className="text  flex justify-between items-center w-full h-20 align-middle text-white px-25 pt-2 bg-black ">Track It</Link>
 
                 <ul className="flex justify-between items-center w-full h-20 align-middle text-white px-4 pt-4 bg-black ">
-                    <Link to="/Equipment">Equipment</Link>
                     <CustomLink to="/Tools">Tools</CustomLink>
                     <CustomLink to="/Technician">Technician</CustomLink>
                     <CustomLink to="/Login">Login</CustomLink> 
