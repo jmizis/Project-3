@@ -1,5 +1,6 @@
 // login page
 import React, { useState } from 'react';
+import Link from 'react-router-dom';
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
 import AuthService from '../utils/auth';
@@ -8,7 +9,7 @@ export default function Login() {
   const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
     const [login, {data}] = useMutation(LOGIN_USER);
 
-    // const isError = data === '';
+    const isError = data === '';
 
     const handleLoginFormChange = (event) => {
         const { name, value } = event.target;
@@ -40,24 +41,42 @@ export default function Login() {
       <div className="card-container">
       <h2>Login to your TrackIt account</h2>
       <div className="card">
-        <form>
+        {data ? (
+          <p>
+            Thanks! Go check out your tools.
+            <Link to="/technician"></Link>
+          </p>
+        ) : (
+          <form>
           <label>Email:
-            <input type='username' 
-                value={loginFormState} 
+            <input
+                className="form-input"
+                placeholder="you@email.com"
+                type='email' 
+                value={loginFormState.email} 
                 onChange={handleLoginFormChange}
                 /> 
           </label>
           <label>Password:
-            <input type='username' 
-                value={loginFormState} 
+            <input 
+                className="form-input"
+                placeholder="******"
+                type='password' 
+                value={loginFormState.password} 
                 onChange={handleLoginFormChange}
                 /> 
           </label>
-        </form>
+        
         <button 
-        type='button' 
-        OnClick={handleLoginFormSubmit}
-        ></button>
+            type='submit' 
+            onClick={handleLoginFormSubmit}
+        >
+          Submit
+        </button>
+        </form>
+        )}
+      
+
        </div>
       </div>
     </div>
