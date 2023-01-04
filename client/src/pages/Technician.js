@@ -18,8 +18,8 @@ export default function Technician() {
   }
 
   return (
-    <div className='box-border p-4 border-4' >
-      <div className="grid container mx-auto content-center min-h-fit min-w-fit text-white bg-gray-600">
+    
+      <div className="grid container mx-auto content-center min-h-fit min-w-fit border-4 text-white bg-gray-600">
         <div className="grid container mx-auto justify-center p-5 content-center text-white ">
           <h2 className="flexcontent-center text-3xl  justify-center p-5 ">Your assigned tools</h2>
         </div>
@@ -56,6 +56,6 @@ export default function Technician() {
         >Add A Tool</button>
         </form>
       </div>
-    </div>
+  
   );
 }
