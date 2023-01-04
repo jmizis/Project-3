@@ -14,7 +14,6 @@ const nav = useState(false);
 
                 <ul className="grid content-center text-2xl w-3/5 justify-center p-5 ">
                     <div className="flex mx-auto space-x-20">
-                        <Link to="/Categories">Category</Link>
                         <Link to="/Tools">Tools</Link>
                         <Link to="/Technician">Technician</Link>    
                     </div>
