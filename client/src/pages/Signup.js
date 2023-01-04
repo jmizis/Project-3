@@ -33,54 +33,56 @@ export default function Signup() {
                   Auth.login(data.addUser.token);
               } catch (e) {
                   console.log(e);
-              }
+      }
+      
           };
 
-    return (
-    <div className="container">
-      <div className="card-container">
-      <h2>Signup for a TrackIt account</h2>
-      <div className="card">
-        <form>
-          <label>Username:
-            <input 
-                className="form-input"
+  return (
+       <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
+    <div className="grid container mx-auto content-center min-h-fit min-w-fit text-black bg-gray-600">
+      <div className="grid container mx-auto justify-center p-5 content-center text-white ">
+          <h2 className="flexcontent-center text-5xl  justify-center p-5 ">Signup for a Track-It Account</h2>
+        </div>  
+        <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
+          
+        <form className="grid text-2xl w-3/5 " onSubmit={handleSignupFormSubmit}> 
+          <label className="flex mx-auto text-black p-5"> Username: 
+            <input className="flex mx-auto space-x-20 text-black"
                 placeholder="Jdoe"
                 type='username'
                 name='username' 
                 value={signupState.username} 
                 onChange={handleSignupFormChange}
                 /> 
-          </label>
-          <label>Email:
-            <input
-              className='form-input'
+            </label>
+            
+          <label className="flex mx-auto text-black p-5"> Email:
+            <input className="flex mx-auto space-x-20 text-black" 
               placeholder='youremail@email.com'
               name='email'
               type='email' 
               value={signupState.email} 
                 onChange={handleSignupFormChange}
                 /> 
-          </label>
-          <label>Password:
-            <input 
-                className='form-input'
+            </label>
+            
+          <label className="flex mx-auto text-black p-5">Password:
+            <input className="flex mx-auto space-x-20 text-black"
                 placeholder='******'
                 type='password' 
                 value={signupState.password} 
                 onChange={handleSignupFormChange}
                 /> 
           </label>
-        </form>
-        <button 
+          </form>
+          
+        <button class="rounded-full border-8 bg-white"
         type='button' 
-        onClick={handleSignupFormSubmit}
-        >
-          Signup
-        </button>
+        >Signup</button>
        </div>
       </div>
-    </div>
+      </div>
+      
   
   )
 };

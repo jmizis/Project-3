@@ -38,7 +38,7 @@ export default function Login() {
     };
 
   return (
-    <div className='box-border p-4 border-4' >
+     <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
       <div className="grid container mx-auto content-center min-h-fit min-w-fit text-black bg-gray-600">
         <div className="grid container mx-auto justify-center p-5 content-center text-white ">
       <h2 className="flexcontent-center text-5xl  justify-center p-5 ">Login to your Track-It Account</h2>
@@ -65,7 +65,7 @@ export default function Login() {
           </label>
                 
           <label className="flex mx-auto text-white p-5">Password:
-            <input className="flex mx-auto space-x-20 text-black rounded-lg"
+            <input className="flex mx-auto space-x-20 text-black"
                 placeholder="******"
                 type='password' 
                 name='password'
