@@ -61,32 +61,32 @@ const resolvers = {
         // update tool
 
         // add technician (same as adding tool)
-        addTechnician: async (parent, args, context) => {
-            if (context.user){
-                const updateUser = await User.findByIdAndUpdate(
-                    {_id: context.user._id},
-                    {$push: {technician: args}},
-                    {new: true}
+        // addTechnician: async (parent, args, context) => {
+        //     if (context.user){
+        //         const updateUser = await User.findByIdAndUpdate(
+        //             {_id: context.user._id},
+        //             {$push: {technician: args}},
+        //             {new: true}
 
-                ) 
-                return updateUser
-            }
-            // might need to add auth error
-        },
+        //         ) 
+        //         return updateUser
+        //     }
+        //     // might need to add auth error
+        // },
 
         // delete technician Finds tech by id and pulls from user tech array
-        deleteTechnician: async (parent, {_id}, context) => {
-            if (context.user){
-                const updateUser = await User.findByIdAndUpdate(
-                    {_id: context.user._id},
-                    {$pull: {technician: _id}},
-                    {new: true}
+        // deleteTechnician: async (parent, {_id}, context) => {
+        //     if (context.user){
+        //         const updateUser = await User.findByIdAndUpdate(
+        //             {_id: context.user._id},
+        //             {$pull: {technician: _id}},
+        //             {new: true}
 
-                ) 
-                return updateUser
-            }
-            // might need to add auth error
-        },
+        //         ) 
+        //         return updateUser
+        //     }
+        //     // might need to add auth error
+        // },
 
 
         // update technician

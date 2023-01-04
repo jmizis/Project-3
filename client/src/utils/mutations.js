@@ -27,23 +27,18 @@ export const LOGIN_USER = gql`
 
 export const ADD_TOOL = gql`
   mutation addTool($name: String!, $description: String!, $value: float!) {
-    addTool(name: $name, description: $description, value: $value, category: $category ) {
+    addTool(name: $name, description: $description, value: $value ) {
       _id
-      firstName
-      lastName
       email
       technician {
         _id
-        firstName
-        lastName
-    
       }
+      
       tool{
         _id
         name
         description
         value
-        category
         technician
       }
     }

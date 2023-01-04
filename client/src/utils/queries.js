@@ -9,10 +9,7 @@ export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
       _id
-     firstName
-     lastName
      email
-    
     }
   }
 `;
@@ -21,8 +18,7 @@ export const QUERY_TECHNICIAN = gql`
   query getTechnician {
     technician {
       _id
-      firstName
-      lastName
+      username
     }
   }
 `;
@@ -34,6 +30,10 @@ export const QUERY_TOOL= gql`
       name
       description
       value
+      technician {
+        _id
+        username
+      }
     }
   }
 `;

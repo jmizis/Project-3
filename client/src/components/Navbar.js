@@ -1,9 +1,15 @@
 
-import { Link } from "react-router-dom"
-import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import AuthService from '../utils/auth';
 
 export default function Navbar() {
 const nav = useState(false);
+const logout = (event) => {
+    event.preventDefault();
+    AuthService.logout();
+  };
+
     return (
 
         <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
@@ -22,7 +28,8 @@ const nav = useState(false);
                 <ul className="grid content-center text-2xl w-1/3 justify-end p-5 ">
                     <div className="flex mx-auto space-x-20">
                         <Link to="/Login">Login</Link> 
-                        <Link to="/Signup">Signup</Link>                  
+                        <Link to="/Signup">Signup</Link>
+                        <Link onClick={logout}>Logout</Link>                  
                     </div>
                 </ul>
             </div>
