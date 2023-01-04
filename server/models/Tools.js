@@ -20,11 +20,6 @@ const toolSchema = new Schema({
       required: true
     },
   
-  category: {
-      type: Schema.Types.ObjectId,  
-      ref: 'Category',
-      required: true              
-    },
   
   technician: {
       type: Schema.Types.ObjectId,

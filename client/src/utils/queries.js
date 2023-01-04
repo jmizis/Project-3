@@ -33,9 +33,7 @@ export const QUERY_TOOL= gql`
       _id
       name
       description
-      category
-      technician
-
+      value
     }
   }
 `;

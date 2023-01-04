@@ -23,7 +23,7 @@ export default function Login() {
         event.preventDefault();
         console.log(loginFormState);
         try {
-            const { data } = await login({
+            const { data } = await login({// i think this is the error
                 variables: { ...loginFormState },
             });
             new AuthService.login(data.login.token);
@@ -52,7 +52,7 @@ export default function Login() {
           </p>
         ) : (
         
-        <form lassName="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
+        <form className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
                 
           <label className="flex mx-auto text-white p-5">Email:
             <input className="flex mx-auto space-x-20 text-black "
