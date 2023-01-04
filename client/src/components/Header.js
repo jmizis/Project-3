@@ -1,18 +1,14 @@
-import React from 'react';
-import Navbar from './Navbar'
-
-
+import React from "react";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <header >
+    <header>
       <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
-        < Navbar />
+        <Navbar />
       </div>
     </header>
-    
-    
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
