@@ -38,20 +38,24 @@ export default function Login() {
     };
 
   return (
-    <div className="container">
-      <div className="card-container">
-      <h2>Login to your TrackIt account</h2>
-      <div className="card">
+    <div className='box-border p-4 border-4' >
+      <div className="grid container mx-auto content-center min-h-fit min-w-fit text-black bg-gray-600">
+        <div className="grid container mx-auto justify-center p-5 content-center text-white ">
+      <h2 className="flexcontent-center text-5xl  justify-center p-5 ">Login to your Track-It Account</h2>
+        </div>
+        
+      <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
         {data ? (
           <p>
             Thanks! Go check out your tools.
             <Link to="/technician"></Link>
           </p>
         ) : (
-          <form>
-          <label>Email:
-            <input
-                className="form-input"
+        
+        <form lassName="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
+                
+          <label className="flex mx-auto text-white p-5">Email:
+            <input className="flex mx-auto space-x-20 text-black "
                 placeholder="youremail@email.com"
                 type='email' 
                 name='email'
@@ -59,9 +63,9 @@ export default function Login() {
                 onChange={handleLoginFormChange}
                 /> 
           </label>
-          <label>Password:
-            <input 
-                className="form-input"
+                
+          <label className="flex mx-auto text-white p-5">Password:
+            <input className="flex mx-auto space-x-20 text-black rounded-lg"
                 placeholder="******"
                 type='password' 
                 name='password'
@@ -70,12 +74,12 @@ export default function Login() {
                 /> 
           </label>
         
-        <button 
+        <button  className="grid container mx-auto rounded-full border-8 bg-white"
             type='submit' 
             onClick={handleLoginFormSubmit}
         >
           Submit
-        </button>
+        </button >
         </form>
         )}
       {isError && (

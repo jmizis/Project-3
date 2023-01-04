@@ -5,10 +5,12 @@ import Navbar from './Navbar'
 
 const Header = () => {
   return (
-      <header >
-      < Navbar />
-     
-      </header>
+    <header >
+      <div className='container mx-auto'>
+        < Navbar />
+      </div>
+    </header>
+    
     
   )
 }
