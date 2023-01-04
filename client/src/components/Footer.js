@@ -12,7 +12,7 @@ export default function Home() {
             target="_blank"
                 rel="noopener noreferrer"
                 >
-                    Lindsey Allen LinkedIn
+                    Lindsay Allen LinkedIn
           </a>
               <a
            href="https://www.linkedin.com/in/chris-holtz-7154ba33"
@@ -26,7 +26,7 @@ export default function Home() {
             target="_blank"
                 rel="noopener noreferrer"
                 >
-                    John Misis LinkedIn
+                    John Mizis LinkedIn
           </a>
 
 

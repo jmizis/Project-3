@@ -7,7 +7,7 @@ import AuthService from '../utils/auth';
 
 export default function Login() {
   const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
-    const [login, {data}] = useMutation(LOGIN_USER);
+    const [login, { error, data}] = useMutation(LOGIN_USER);
 
     const isError = data === '';
 
@@ -26,7 +26,8 @@ export default function Login() {
             const { data } = await login({// i think this is the error
                 variables: { ...loginFormState },
             });
-            new AuthService.login(data.login.token);
+            console.log(data);
+             AuthService.login(data.login.token);
         } catch (e) {
             console.log(e);// Auth login error
         }
