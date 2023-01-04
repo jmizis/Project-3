@@ -1,13 +1,8 @@
-// our home page or landing page. will need login page. 
-// needs to direct to login page and once creds are evaluated, this can lead to inventory input or pages to view inventory class? need to lock down these details. 
-
 import React from "react";
-// import {useMatch, useResolvedPath} from "react-router-dom";
 
-// import Login from './Login';
-// import Signup from './Signup';
 
 export default function Home() {
+
   // function CustomLink({ to, children, ...props }) {
   //   const resolvedPath = useResolvedPath(to)
   //   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
@@ -24,7 +19,7 @@ export default function Home() {
              add some images etc.
            </h2>
          </div>
+
     </div>
-       
   );
-};
+}

@@ -1,4 +1,3 @@
-// login page
 import React, { useState } from 'react';
 import { Link }from 'react-router-dom';
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
@@ -47,10 +46,12 @@ export default function Login() {
         
       <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
         {data ? (
-          <p>
-            Thanks! Go check out your tools.
-            <Link to="/technician"></Link>
-          </p>
+        
+        
+            <Link to="/Technician">
+              {AuthService.loggedIn().data.username}
+            </Link>
+          
         ) : (
         
         <form className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">

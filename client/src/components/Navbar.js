@@ -1,15 +1,15 @@
-
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import AuthService from '../utils/auth';
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import AuthService from "../utils/auth";
 
 export default function Navbar() {
-const nav = useState(false);
-const logout = (event) => {
+  const nav = useState(false); // what is this for?
+
+  // how to direct route to home page on logout
+  const logout = (event) => {
     event.preventDefault();
     AuthService.logout();
   };
-
     return (
 
         <div className="flex container mx-auto content-center min-h-fit min-w-fit border-4  text-white bg-gray-600">
@@ -35,20 +35,19 @@ const logout = (event) => {
             </div>
         </div >   
     )    
+
 }
-    
 
 // function CustomLink({ to, children, ...props }) {
 //     const resolvedPath = useResolvedPath(to)
 //     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-   
+
 //     return (
 //         <li className={isActive ? "active" : ""}>
 //             <Link to={to} {...props}>
 //                 {children}
 //             </Link>
 //         </li>
-  
+
 //     )
 // }
-    
