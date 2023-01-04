@@ -4,7 +4,6 @@ import Technician from "./pages/Technician";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Equipment from "./pages/Equipment";
 import Tools from "./pages/Tools";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -47,6 +46,7 @@ function App() {
    
   return (
     <>
+
       <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
       <ApolloProvider client={client}>
          <div className="grid container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
@@ -62,6 +62,7 @@ function App() {
           </main>
         <Footer />
         </div>
+
       </ApolloProvider>
      </div> 
     </>
