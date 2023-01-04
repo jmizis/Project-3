@@ -34,7 +34,10 @@ type Tools {
   type Query {
      users: [User]
       user(username: String!): [User]
-      tools(name: String, value: Float): [Tools]
+
+      tools(name: String,
+        description: String, value: Float): [Tools]
+
       technician(tool: ID, name: String): [Technician]  
     }
 
