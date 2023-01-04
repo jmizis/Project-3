@@ -38,7 +38,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
+    <div className="flex container mx-auto content-center min-h-fit min-w-fit border-4 text-white bg-gray-600">
       <div className="grid container mx-auto content-center min-h-fit min-w-fit text-black bg-gray-600">
         <div className="grid container mx-auto justify-center p-5 content-center text-white ">
           <h2 className="flexcontent-center text-5xl  justify-center p-5 ">

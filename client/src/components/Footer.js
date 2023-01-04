@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-      <div className="container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
+      <div className="container mx-auto content-center min-h-fit min-w-fit border-4 text-white bg-gray-600">
    
 
       <ul className="container mx-auto grid content-center text-2xl w-3/5 justify-center p-5 ">

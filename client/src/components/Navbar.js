@@ -12,7 +12,7 @@ const logout = (event) => {
 
     return (
 
-        <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
+        <div className="flex container mx-auto content-center min-h-fit min-w-fit border-4  text-white bg-gray-600">
 
             <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
                     
