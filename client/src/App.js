@@ -46,28 +46,29 @@ function App() {
    
   return (
     <>
-    <ApolloProvider client={client}>
-      <Header />
-     
-      
-      <div className='bg-gradient-to-b from-black to-gray-800 md:h-screen text-white'>
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Technician" element={<Technician />} />
-            <Route path="/Tools" element={<Tools />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
-          </Routes>
-        </main>
-      </div>
-      <Footer />
+
+      <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
+      <ApolloProvider client={client}>
+         <div className="grid container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
+        <Header />  
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Technician" element={<Technician />} />
+              <Route path="/Tools" element={<Tools />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Signup" element={<Signup />} />
+            </Routes>
+          </main>
+        <Footer />
+        </div>
+
       </ApolloProvider>
+     </div> 
     </>
     
   )
 }
-  
  
 export default App
 

@@ -8,18 +8,18 @@ const nav = useState(false);
 
         <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
 
-            <div className="flex content-center px-12 w-full h-40">
+            <div className="flex container mx-auto content-center min-h-fit min-w-fit  text-white bg-gray-600">
                     
-                <Link to="/" className="grid content-center text-5xl w-1/5 justify-center p-5 ">Track-It</Link>
+                <Link to="/" className="grid content-center text-5xl w-1/3 justify-center p-5 ">Track-It</Link>
 
-                <ul className="grid content-center text-2xl w-3/5 justify-center p-5 ">
+                <ul className="grid content-center text-2xl w-1/3 justify-center p-5 ">
                     <div className="flex mx-auto space-x-20">
                         <Link to="/Tools">Tools</Link>
                         <Link to="/Technician">Technician</Link>    
                     </div>
 
                 </ul>
-                <ul className="grid content-center text-2xl w-1/5 justify-end p-5 ">
+                <ul className="grid content-center text-2xl w-1/3 justify-end p-5 ">
                     <div className="flex mx-auto space-x-20">
                         <Link to="/Login">Login</Link> 
                         <Link to="/Signup">Signup</Link>                  
