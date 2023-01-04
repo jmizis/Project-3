@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import AuthService from '../utils/auth';
 
 export default function Navbar() {
-const nav = useState(false);
+const nav = useState(false);// what is this for? 
 const logout = (event) => {
     event.preventDefault();
     AuthService.logout();
