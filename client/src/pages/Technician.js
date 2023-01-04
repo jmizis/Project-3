@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 import { QUERY_TOOL } from "../utils/queries";
+import { useMutation } from "@apollo/client";
+import { ADD_TOOL } from "../utils/mutations";
 
 export default function Technician() {
-  
+  const [logTool, setLogTool] = useState({ name: '', description: '', value: ''});
+  const [addTool, { error }] = useMutation(ADD_TOOL);
+
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+
+  // try {
+  //   const { data } = await addTool({
+  //     variables: {
+  //         name,
+  //         description,
+  //         value,
+  //     }
+  //   })
+  // }
+}
+
+ // will need this to show all tech tools
   const { tool } = useParams();
 
   const { loading, data } = useQuery(QUERY_TOOL, {

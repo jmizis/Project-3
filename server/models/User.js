@@ -28,10 +28,10 @@ const userSchema = new Schema({
   },
 
   // added this array of technician types
-  technician : [{
-    type: Schema.Types.ObjectId,  
-      ref: 'Technician',
-  }],
+  // technician : [{
+  //   type: Schema.Types.ObjectId,  
+  //     ref: 'Technician',
+  // }],
 
   // added this array for tools
   tool : [{

@@ -21,11 +21,11 @@ const toolSchema = new Schema({
     },
   
   
-  technician: {
-      type: Schema.Types.ObjectId,
-      ref: 'Technician',
-      required: true    
-    },
+  // technician: {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Technician',
+  //     required: true    
+  //   },
     
     // added this
     createdAt: {
