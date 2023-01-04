@@ -9,9 +9,9 @@ db.once('open', async () => {
 
         await User.create(userSeeds);
 
-        const user = await User.findOneAndUpdate(
-            { username: [Tools] }
-        )
+        // const user = await User.findOneAndUpdate(
+        //     { tool: [Tools] }
+        // )
     } catch(error) {
         console.error(error);
     }

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
+
 import { QUERY_TOOL } from "../utils/queries";
 
-export default function Tools() {
 
+export default function Tools() {
+ 
   const { tool } = useParams();
 
   const { loading, data } = useQuery(QUERY_TOOL, {
-    variables: { tool: tool},
+    variables: { tool: [tool]},// I am not sure this is correct Ido want the whole object
   });
 
   const tools = data?.tools || {};

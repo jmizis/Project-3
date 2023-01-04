@@ -2,19 +2,16 @@
     {
         "username": "cats",
         "email": "meow@cats.com",
-        "password": "pass1234",
-        "tool": ["hammer", "angle grinder", "planer"]
+        "password": "pass1234"
     },
     {
         "username": "dogs",
         "email": "woof@dogs.com",
-        "password": "pass2345",
-        "tool": ["screw driver", "hammer", "drill"]
+        "password": "pass2345"
     },
     {
         "username": "birds",
         "email": "craw@birds.com",
-        "password": "pass3456",
-        "tool": ["nail gun", "pole saw", "welder torch"]
+        "password": "pass3456"
     }
 ]
