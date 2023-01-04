@@ -1,0 +1,20 @@
+[
+    {
+        "username": "cats",
+        "email": "meow@cats.com",
+        "password": "pass1234",
+        "tool": ["hammer", "angle grinder", "planer"]
+    },
+    {
+        "username": "dogs",
+        "email": "woof@dogs.com",
+        "password": "pass2345",
+        "tool": ["screw driver", "hammer", "drill"]
+    },
+    {
+        "username": "birds",
+        "email": "craw@birds.com",
+        "password": "pass3456",
+        "tool": ["nail gun", "pole saw", "welder torch"]
+    }
+]
