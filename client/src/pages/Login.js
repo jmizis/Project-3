@@ -9,7 +9,7 @@ export default function Login() {
   const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
     const [login, {data}] = useMutation(LOGIN_USER);
 
-    // const isError = data === '';
+    const isError = data === '';
 
     const handleLoginFormChange = (event) => {
         const { name, value } = event.target;
@@ -28,7 +28,7 @@ export default function Login() {
             });
             new AuthService.login(data.login.token);
         } catch (e) {
-            console.log(e);
+            console.log(e);// Auth login error
         }
 
         setLoginFormState({
@@ -82,7 +82,10 @@ export default function Login() {
         </button >
         </form>
         )}
-      
+      {isError && (
+        <div> {isError.message}
+        </div>
+      )}
 
        </div>
       </div>
