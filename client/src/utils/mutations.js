@@ -28,7 +28,9 @@ export const LOGIN_USER = gql`
 export const ADD_TOOL = gql`
   mutation addTool($name: String!, $description: String!, $value: float!) {
     addTool(name: $name, description: $description, value: $value ) {
-      _id
+      name
+      description
+      value
     }
   }
 `;

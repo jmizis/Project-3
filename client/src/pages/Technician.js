@@ -1,52 +1,53 @@
 import React, { useState } from "react";
-import { useParams } from 'react-router-dom';
-import { useQuery } from "@apollo/client";
-import { QUERY_TOOL } from "../utils/queries";
+// import { useParams } from 'react-router-dom';
+// import { useQuery } from "@apollo/client";
+// import { QUERY_TOOL } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 import { ADD_TOOL } from "../utils/mutations";
 
 export default function Technician() {
-  const [logToolState, setLogToolState] = useState({ name: '', description: '', value: ''});
-  const [addToolState, setToolState] = useState({name: '', description: '', value: ''});
-  
+  const [toolState, setToolState] = useState({ name: '', description: '', value: ''});
+  // const [addToolState, setAddToolState] = useState({name: '', description: '', value: ''});
+  const [addTool, { error }] = useMutation(ADD_TOOL);
   
 
 const handleFormChange = (event) => {
   const{ name, value } = event.target;
-  setLogToolState({
-    ...logToolState,
+  setToolState({
+    ...toolState,
     [name]: value,
   });
 };
-const [addTool, { error }] = useMutation(ADD_TOOL);
+
 const handleFormSubmit = async (event) => {
+  console.log(event)
   event.preventDefault();
-  console.log(addToolState);
+  console.log('meow');
   
-  try {
-    const { data } = await addTool({
-      variables: {
-          ...addToolState
-      }
-    });
-    setToolState('');
-  } catch (error) {
-    console.log(error);
-  }
+  
+  // do something with toolState then set the defaults useEffect, store to data base,
+  console.log(toolState);
+
+  // setting form values back to default
+  setToolState({name: '', description: '', value: ''});
+  
 }
 
+// useEffect for one time loading 
+// may need to log it by each name
+
  // will need this to show all tech tools
-  const { tool } = useParams();
+  // const { tool } = useParams();
 
-  const { loading, data } = useQuery(QUERY_TOOL, {
-    variables: { tool: tool},
-  });
+  // const { loading, data } = useQuery(QUERY_TOOL, {
+  //   variables: { tool: tool},
+  // });
 
-  const tools = data?.tools || {};
-
-  if(loading) {
-    return <div>loading</div>;
-  }
+  // const tools = data?.tools || {};
+  // console.log(tools);
+  // if(loading) {
+  //   return <div>loading</div>;
+  // }
 
   return (
     
@@ -57,9 +58,9 @@ const handleFormSubmit = async (event) => {
         <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5">
           your tool list
           <ul>
-            <li>{tools.name}**</li>
+            {/* <li>{tools.name}**</li>
             <li>{tools.description}**</li>
-            <li>{tools.value}**</li>
+            <li>{tools.value}**</li> */}
           </ul>
         </div>
 
@@ -69,7 +70,7 @@ const handleFormSubmit = async (event) => {
                 placeholder="add tool name"
                 type='text'
                 name='name'
-                value={logToolState.name}
+                value={toolState.name}
                 onChange={handleFormChange} 
                 /> 
           </label>
@@ -78,7 +79,7 @@ const handleFormSubmit = async (event) => {
                 placeholder="describe condition"
                 type='text'
                 name='description'
-                value={logToolState.description}
+                value={toolState.description}
                 onChange={handleFormChange}  
                 /> 
           </label>
@@ -87,14 +88,13 @@ const handleFormSubmit = async (event) => {
                 placeholder="denote value"
                 type='number'
                 name='value'
-                value={logToolState.value}
+                value={toolState.value}
                 onChange={handleFormChange}  
                 /> 
           </label>
           <button className="grid container mx-auto rounded-full border-8 bg-white text-black"
             type='submit' 
-            // value={setToolState}
-            onSubmit={handleFormSubmit}   
+            onClick={handleFormSubmit}   
         >Add A Tool</button>
         </form>
       </div>
