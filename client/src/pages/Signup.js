@@ -13,7 +13,7 @@ export default function Signup() {
 
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  // const isError = data === '';
+ 
 
   const handleSignupFormChange = (event) => {
     const { name, value } = event.target;
@@ -36,6 +36,7 @@ export default function Signup() {
     } catch (e) {
       console.log(e);
     }
+    handleSignupFormSubmit();
   };
 
   return (
@@ -48,8 +49,8 @@ export default function Signup() {
         </div>
         <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
           <form
-            className="grid text-2xl w-3/5 "
-            onSubmit={handleSignupFormSubmit}
+              className="grid text-2xl w-3/5 "
+              onClick={handleSignupFormSubmit}
           >
             <label className="flex mx-auto text-black p-5">
               {" "}
@@ -105,63 +106,4 @@ export default function Signup() {
   );
 }
 
-//         <FormControl>
-//             <FormLabel>Signup for a TrackIt account</FormLabel>
 
-//             <Input
-// type='username'
-// value={signupState}
-// onChange={handleSignupFormChange}
-//                 />
-//       {!isError ? (
-//         <FormHelperText>
-//           Choose a public username
-//         </FormHelperText>
-//       ) : (
-//         <FormErrorMessage>
-//             Username required
-//         </FormErrorMessage>
-//       )};
-
-//       <Input
-//         type='email'
-//         value={signupState}
-//         onChange={handleSignupFormChange}
-//         />
-//       {!isError ? (
-//         <FormHelperText>
-//           Enter company used email.
-//         </FormHelperText>
-//       ) : (
-//         <FormErrorMessage>Email is required.</FormErrorMessage>
-//       )};
-
-//       <Input
-//         type='password'
-//         value={signupState}
-//         onChange={handleSignupFormChange}
-//         />
-//       {!isError ? (
-//         <FormHelperText>
-//           Password
-//         </FormHelperText>
-//       ) : (
-//         <FormErrorMessage>A password is required.</FormErrorMessage>
-//       )};
-//       <Button
-//         as='button'
-//         OnClick={handleSignupFormSubmit}
-//         isLoading
-//         loadingText='Submitting'
-//         colorScheme='teal'
-//         variant='outline'
-//         >
-//         Submit
-//         </Button>
-
-//         </FormControl>
-//     )
-
-// }
-
-// export default Signup();

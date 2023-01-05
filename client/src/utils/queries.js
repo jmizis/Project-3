@@ -13,27 +13,14 @@ export const QUERY_USER = gql`
     }
   }
 `;
-  
-export const QUERY_TECHNICIAN = gql`
-  query getTechnician {
-    technician {
-      _id
-      username
-    }
-  }
-`;
 
 export const QUERY_TOOL= gql`
   query getTool {
     tool {
       _id
-      name
+      toolName
       description
       value
-      technician {
-        _id
-        username
-      }
     }
   }
 `;

@@ -20,19 +20,23 @@ const resolvers = {
 
             return { token, user };
         },
-        // delete user
-       
-        // add tool JM
+
         // takes args/ finds user context/pushes new tool object into selected users tool array
-        addTool: async (parent, args, context) => {
+        addTool: async (parent, { tools }, context) => {
             if (context.user){
-                const updateUser = await User.findByIdAndUpdate(
+                const toolAdd = await Tools.create({
+                    toolName,
+                    description,
+                    value,
+                }) 
+                
+                await User.findByIdAndUpdate(
                     {_id: context.user._id},
-                    {$push: {tool: args}},
+                    {$addToSet: {tools: tools._id}},
                     {new: true}
 
                 ) 
-                return updateUser
+                return toolAdd;
             }
             // might need to add auth error
         },
