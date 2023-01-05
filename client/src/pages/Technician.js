@@ -6,21 +6,33 @@ import { useMutation } from "@apollo/client";
 import { ADD_TOOL } from "../utils/mutations";
 
 export default function Technician() {
-  const [logTool, setLogTool] = useState({ name: '', description: '', value: ''});
-  const [addTool, { error }] = useMutation(ADD_TOOL);
+  const [logToolState, setLogToolState] = useState({ name: '', description: '', value: ''});
+  const [addToolState, setToolState] = useState({name: '', description: '', value: ''});
+  
+  
 
+const handleFormChange = (event) => {
+  const{ name, value } = event.target;
+  setLogToolState({
+    ...logToolState,
+    [name]: value,
+  });
+};
+const [addTool, { error }] = useMutation(ADD_TOOL);
 const handleFormSubmit = async (event) => {
   event.preventDefault();
-
-  // try {
-  //   const { data } = await addTool({
-  //     variables: {
-  //         name,
-  //         description,
-  //         value,
-  //     }
-  //   })
-  // }
+  console.log(addToolState);
+  
+  try {
+    const { data } = await addTool({
+      variables: {
+          ...addToolState
+      }
+    });
+    setToolState('');
+  } catch (error) {
+    console.log(error);
+  }
 }
 
  // will need this to show all tech tools
@@ -55,23 +67,34 @@ const handleFormSubmit = async (event) => {
         <label className="flex mx-auto text-white p-5">Tool: 
             <input className="flex mx-auto space-x-20 text-black"
                 placeholder="add tool name"
-                type='text' 
+                type='text'
+                name='name'
+                value={logToolState.name}
+                onChange={handleFormChange} 
                 /> 
           </label>
           <label className="flex mx-auto text-white p-5">Description: 
             <input className="flex mx-auto space-x-20 text-black"
                 placeholder="describe condition"
-                type='text' 
+                type='text'
+                name='description'
+                value={logToolState.description}
+                onChange={handleFormChange}  
                 /> 
           </label>
           <label className="flex mx-auto text-white p-5">Price: 
             <input className="flex mx-auto space-x-20 text-black"
                 placeholder="denote value"
-                type='number' 
+                type='number'
+                name='value'
+                value={logToolState.value}
+                onChange={handleFormChange}  
                 /> 
           </label>
           <button className="grid container mx-auto rounded-full border-8 bg-white text-black"
-            type='submit'    
+            type='submit' 
+            // value={setToolState}
+            onSubmit={handleFormSubmit}   
         >Add A Tool</button>
         </form>
       </div>
