@@ -33,7 +33,7 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
     <ApolloProvider client={client}>
    
@@ -41,7 +41,7 @@ root.render(
     
       </ApolloProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
   
 );
 

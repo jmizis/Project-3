@@ -47,16 +47,7 @@ import Auth from '../utils/auth';
         </div>
         
       <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
-        {data ? (
-        
 
-        
-            <Link to="/Technician">
-              {Auth.loggedIn().data.username}
-            </Link>
-
-          
-        ) : (
         
         <form className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
                 
@@ -87,7 +78,7 @@ import Auth from '../utils/auth';
           Submit
         </button >
         </form>
-        )}
+   
       {error && (
         <div> {error.message}
         </div>
