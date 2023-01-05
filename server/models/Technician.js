@@ -1,20 +1,20 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+// const mongoose = require('mongoose');
+// const { Schema } = mongoose;
 
-const technicianSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
+// const technicianSchema = new Schema({
+//     firstName: {
+//         type: String,
+//         required: true
+//     },
 
-    lastName: {
-        type: String,
-        required: true
-    }  
-});
-
-
-const Technician = mongoose.model('Technician', technicianSchema);
+//     lastName: {
+//         type: String,
+//         required: true
+//     }  
+// });
 
 
-module.exports = Technician;
+// const Technician = mongoose.model('Technician', technicianSchema);
+
+
+// module.exports = Technician;
