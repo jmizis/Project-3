@@ -23,7 +23,7 @@ export default function Home() {
             Chris Holtz LinkedIn
           </a>
           <a
-            href="https://www.linkedin.com/in/lindsay-allen-3545b2243"
+            href="https://www.linkedin.com/in/john-mizis-474222245/"
             target="_blank"
             rel="noopener noreferrer"
           >
