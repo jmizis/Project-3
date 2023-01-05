@@ -44,7 +44,7 @@ import AuthService from '../utils/auth';
         
       <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
 
-        
+
 
         
         <form className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
@@ -76,7 +76,7 @@ import AuthService from '../utils/auth';
           Submit
         </button >
         </form>
-      
+
       {error && (
         <div> {error.message}
         </div>
