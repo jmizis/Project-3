@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link }from 'react-router-dom';
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
-import AuthService from '../utils/auth';
+import Auth from '../utils/auth';
 
-export default function Login() {
+ const Login = (props) => {
   const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
     const [login, { error, data}] = useMutation(LOGIN_USER);
 
-    const isError = data === '';
+    // const isError = data === '';
 
     const handleLoginFormChange = (event) => {
         const { name, value } = event.target;
@@ -22,13 +22,13 @@ export default function Login() {
         event.preventDefault();
         console.log(loginFormState);
         try {
-            const { data } = await login({// i think this is the error
+            const { data } = await login({
                 variables: { ...loginFormState },
             });
             console.log(data);
-             AuthService.login(data.login.token);
+             Auth.login(data.login.token);
         } catch (e) {
-            console.log(e);// Auth login error
+            console.log(e);
         }
 
         setLoginFormState({
@@ -49,7 +49,7 @@ export default function Login() {
         
         
             <Link to="/Technician">
-              {AuthService.loggedIn().data.username}
+              {Auth.loggedIn().data.username}
             </Link>
           
         ) : (
@@ -84,8 +84,8 @@ export default function Login() {
         </button >
         </form>
         )}
-      {isError && (
-        <div> {isError.message}
+      {error && (
+        <div> {error.message}
         </div>
       )}
 
@@ -96,7 +96,7 @@ export default function Login() {
 }
 
 
-
+export default Login;
 
 
 
