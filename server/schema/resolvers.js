@@ -38,7 +38,7 @@ const resolvers = {
                 ) 
                 return toolAdd;
             }
-            // might need to add auth error
+            
         },
 
         
@@ -53,7 +53,7 @@ const resolvers = {
                 ) 
                 return updateUser
             }
-            // might need to add auth error
+           
         },
 
         // update tool
@@ -87,14 +87,7 @@ const resolvers = {
         // },
 
 
-        // update technician
-
-        // add category
-
-        // delete category
-
-        // log out user
-
+       
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
