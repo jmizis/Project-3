@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
-import AuthService from '../utils/auth';
+import Auth from '../utils/auth';
 
-export default function Login() {
+ const Login = (props) => {
   const [loginFormState, setLoginFormState] = useState({ email: '', password: ''});
     const [login, { error, data}] = useMutation(LOGIN_USER);
 
-    const isError = data === '';
+    // const isError = data === '';
 
     const handleLoginFormChange = (event) => {
         const { name, value } = event.target;
@@ -26,9 +26,11 @@ export default function Login() {
                 variables: { ...loginFormState },
             });
             console.log(data);
-             AuthService.login(data.login.token);
-        } catch (error) {
-            console.log(error);// Auth login error
+
+             Auth.login(data.login.token);
+        } catch (e) {
+            console.log(e);
+
         }
 
         setLoginFormState({
@@ -47,7 +49,12 @@ export default function Login() {
       <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
         {data ? (
         
-            <div>You are logged in at Technician</div>
+
+        
+            <Link to="/Technician">
+              {Auth.loggedIn().data.username}
+            </Link>
+
           
         ) : (
         
@@ -81,8 +88,8 @@ export default function Login() {
         </button >
         </form>
         )}
-      {isError && (
-        <div> {isError.message}
+      {error && (
+        <div> {error.message}
         </div>
       )}
 
@@ -91,6 +98,17 @@ export default function Login() {
     </div>
   );
 }
+
+
+
+export default Login;
+
+
+
+
+
+
+// import { Link } from 'react-router-dom'; to link once logged in to the technician page
 
 // import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 // import { LOGIN_USER } from '../utils/mutations';// added thru mutations
