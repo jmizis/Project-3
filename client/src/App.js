@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Tools from "./pages/Tools";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-// Added from react can connect with graphql in the backend for mutations/quiers. establish a qraphql uri for frontend
+
 import {
   ApolloClient,
   InMemoryCache,

@@ -1,7 +1,7 @@
 // const mongoose = require('mongoose');
 // added this
 const { Schema, model } = require('mongoose');
-// added this
+
 const dateFormat = require ('../utils/date')
 
 const toolSchema = new Schema({
@@ -20,7 +20,7 @@ const toolSchema = new Schema({
       required: true
     },
   
-    // added this
+  
     createdAt: {
       type: Date,
       default: Date.now,
