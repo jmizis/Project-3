@@ -5,7 +5,7 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require ('../utils/date')
 
 const toolSchema = new Schema({
-  name: {
+  toolName: {
         type: String,
         required: true
     },
@@ -20,13 +20,6 @@ const toolSchema = new Schema({
       required: true
     },
   
-  
-  // technician: {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Technician',
-  //     required: true    
-  //   },
-    
     // added this
     createdAt: {
       type: Date,

@@ -6,22 +6,15 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    technician: [Technician]
     tool: [Tools]
   }
 
-  type Technician {
-    _id: ID!
-    username: String
-    tool: [Tools]
-  }
 
   type Tools {
     _id: ID!
-    name: String!
+    toolName: String!
     description: String
     value: Float
-    technician: Technician
   }
 
   type Auth {
@@ -32,10 +25,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-
-    tools(name: String, description: String, value: Float): [Tools]
-
-    technician(tool: ID, username: String): Technician
+    tools(toolName: String, description: String, value: Float): [Tools]
   }
 
   type Mutation {
@@ -45,11 +35,11 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    addTool(name: String!, description: String!, value: Float!): User
+    addTool(toolName: String!, description: String!, value: Float!): User
 
     deleteTool(_id: ID): User
 
-    updateTool(name: String, description: String, value: Float): User
+    updateTool(toolName: String!, description: String!, value: Float!): User
   }
 `;
 

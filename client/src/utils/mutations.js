@@ -26,8 +26,8 @@ export const LOGIN_USER = gql`
 
 
 export const ADD_TOOL = gql`
-  mutation addTool($name: String!, $description: String!, $value: float!) {
-    addTool(name: $name, description: $description, value: $value ) {
+  mutation addTool($toolName: String!, $description: String!, $value: float!) {
+    addTool(name: $toolName, description: $description, value: $value ) {
       name
       description
       value
