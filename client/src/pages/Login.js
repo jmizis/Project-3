@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link }from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 import { LOGIN_USER } from '../utils/mutations';// added thru mutations
 import AuthService from '../utils/auth';
@@ -15,20 +15,20 @@ export default function Login() {
         setLoginFormState({
             ...loginFormState,
             [name]: value,
-        });
+        }); 
     };
 
     const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
         console.log(loginFormState);
         try {
-            const { data } = await login({// i think this is the error
+            const { data } = await login({
                 variables: { ...loginFormState },
             });
             console.log(data);
              AuthService.login(data.login.token);
-        } catch (e) {
-            console.log(e);// Auth login error
+        } catch (error) {
+            console.log(error);// Auth login error
         }
 
         setLoginFormState({
@@ -47,10 +47,7 @@ export default function Login() {
       <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5 ">
         {data ? (
         
-        
-            <Link to="/Technician">
-              {AuthService.loggedIn().data.username}
-            </Link>
+            <div>You are logged in at Technician</div>
           
         ) : (
         
@@ -95,15 +92,6 @@ export default function Login() {
   );
 }
 
-
-
-
-
-
-
-
-
-// import { Link } from 'react-router-dom'; to link once logged in to the technician page
 // import { useMutation } from '@apollo/client';// allows mutations thru typedefs
 // import { LOGIN_USER } from '../utils/mutations';// added thru mutations
 // import AuthService from '../utils/auth';

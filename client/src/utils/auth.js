@@ -20,18 +20,18 @@ class AuthService {
         return false;
     }
     // retrieves token from local storage
-    getToken() {
-        return localStorage.setItem('id_token');
+    getToken(idToken) {
+        return localStorage.setItem('id_token', idToken );
     }
     // sets login token if none to local storage
     login(idToken) {
         localStorage.setItem('id_token', idToken);
-        window.location.assign('/');
+        window.location.replace('./Technician');
     }
     // removes token at log out
-    logout(){
-        localStorage.removeItem('id-token');
-        window.location.reload();
+    logout(idToken){
+        localStorage.removeItem('id-token', idToken);
+        window.location.replace('./');
     }
 }
 

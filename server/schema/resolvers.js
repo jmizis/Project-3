@@ -11,12 +11,6 @@ const resolvers = {
         tools: async (parent, {_id}, content) => {
             return Tools.findOne({ _id }).populate('Tools')
         }
-        
-
-
-        // by catergory
-        // by technician
-        // by tool
     },
 
     Mutation: {

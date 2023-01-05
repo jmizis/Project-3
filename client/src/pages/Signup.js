@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ADD_USER } from "../utils/mutations";
 import AuthService from "../utils/auth";
 import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom"
 
 export default function Signup() {
   const [signupState, setSignupState] = useState({
@@ -89,7 +90,12 @@ export default function Signup() {
             </label>
          
 
-          <button className="rounded-full border-8 bg-white" type="submit">
+          <button 
+              className="rounded-full border-8 bg-white" type="submit"
+              onSubmit={
+                <Link to="./Technician"></Link>
+              }
+              >
             Signup
           </button>
           </form>

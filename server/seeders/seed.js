@@ -1,6 +1,7 @@
 const db = require('../config/connection');
 const { User, Tools, Technician } = require('../models');
 const userSeeds = require('./userSeeds.json');
+const toolsSeeds = require('./toolsSeeds.json');
 
 db.once('open', async () => {
     try {
@@ -8,6 +9,7 @@ db.once('open', async () => {
         await Tools.deleteMany({});
 
         await User.create(userSeeds);
+        await Tools.create(toolsSeeds);
 
         // const user = await User.findOneAndUpdate(
         //     { tool: [Tools] }
