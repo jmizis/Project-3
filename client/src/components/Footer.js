@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Home() {
+  // block of empty space should be reduced
   return (
       <div className="container mx-auto content-center min-h-fit min-w-fit border-4 text-white bg-gray-600">
    

@@ -16,7 +16,7 @@ import {
   } from '@apollo/client';
   import { setContext } from '@apollo/client/link/context';
 
-  
+  // bad spacing here. Need to tab content over
   const httpLink = createHttpLink({
     uri: '/graphql',
     });
@@ -26,6 +26,7 @@ import {
     // get the authentication token from local storage if it exists
     const token = localStorage.getItem('id_token');
     // return the headers to the context so httpLink can read them
+    // bad spacing here. Need to tab content over
     return {
     headers: {
     ...headers,
@@ -34,6 +35,7 @@ import {
     };
     });
     
+    // bad spacing here. Need to tab content over
     const client = new ApolloClient({
     // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
     link: authLink.concat(httpLink),
@@ -75,7 +77,7 @@ export default App
 
 
 
-
+// remove commented out code if it's not needed
 
 // import './App.css';
 // import { BrowserRouter as Router, Route } from 'react-router-dom'; 

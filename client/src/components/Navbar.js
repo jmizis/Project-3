@@ -3,13 +3,15 @@ import React, { useState } from "react";
 import AuthService from "../utils/auth";
 
 export default function Navbar() {
+  // these questions are for your team members? Remove them before final submission
   const nav = useState(false); // what is this for?
 
   // how to direct route to home page on logout
   const logout = (event) => {
     event.preventDefault();
     AuthService.logout();
-  };
+  }; // don't need ; after ending }
+    // adding a ternary based on if the user is logged in for sign up / sign in / log out would be a nice addition
     return (
 
         <div className="flex container mx-auto content-center min-h-fit min-w-fit border-4  text-white bg-gray-600">

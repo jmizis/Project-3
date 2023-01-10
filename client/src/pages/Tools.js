@@ -1,3 +1,5 @@
+// if this code is not needed, delete the entire file
+
 // import React, { useState } from "react";
 // import { useQuery } from "@apollo/client";
 // import { QUERY_TOOL } from "../utils/queries";

@@ -11,6 +11,7 @@ db.once('open', async () => {
         await User.create(userSeeds);
         await Tools.create(toolsSeeds);
 
+        // remove if not using
         // const user = await User.findOneAndUpdate(
         //     { tool: [Tools] }
         // )

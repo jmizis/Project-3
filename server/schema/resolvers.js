@@ -56,6 +56,8 @@ const resolvers = {
            
         },
 
+        // remove these commented out sections if not used
+
         // update tool
 
         // add technician (same as adding tool)

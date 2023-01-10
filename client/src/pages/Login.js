@@ -14,7 +14,7 @@ import AuthService from '../utils/auth';
             ...loginFormState,
             [name]: value,
         });
-    };
+    }; // remove ;
 
     const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
@@ -33,8 +33,8 @@ import AuthService from '../utils/auth';
             email: '',
             password: '',
         });
-    };
-
+    }; // remove ;
+  // remove block of blank space
   return (
      <div className="flex container mx-auto content-center min-h-fit min-w-fit border-4 text-white bg-gray-600">
       <div className="grid container mx-auto content-center min-h-fit min-w-fit text-black bg-gray-600">

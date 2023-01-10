@@ -32,6 +32,7 @@ const client = new ApolloClient({
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// remove this commented out React strictmode if you are not using it
 root.render(
   // <React.StrictMode>
     <BrowserRouter>

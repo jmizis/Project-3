@@ -22,7 +22,7 @@ export default function Signup() {
       ...signupState,
       [name]: value,
     });
-  };
+  }; // remove ;
 
   const handleSignupFormSubmit = async (event) => {
     event.preventDefault();
@@ -37,8 +37,9 @@ export default function Signup() {
       console.log(e);
     }
     handleSignupFormSubmit();
-  };
+  }; // remove ;
 
+  // are the {" "} for blank spaces? there are better ways to do that with classes or other types of css
   return (
     <div className="flex container mx-auto content-center min-h-fit min-w-fit border-4 text-white bg-gray-600">
       <div className="grid container mx-auto content-center min-h-fit min-w-fit text-black bg-gray-600">

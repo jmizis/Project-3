@@ -43,7 +43,7 @@ export const DELETE_TOOL = gql`
   }
 `;
 
-
+// If the code is not needed, delete before final submission
 // export const ADD_TECHNICIAN = gql`
 //   mutation addTechnician($firstName: String!, $lastName: String!) {
 //     addTechnician(firstname: $firstName, lastName: $lastName) {
