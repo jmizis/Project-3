@@ -25,16 +25,22 @@ export const LOGIN_USER = gql`
 `;
 
 
+// export const ADD_TOOL = gql`
+//   mutation addTool($toolName: String!, $description: String!, $value: Float!) {
+//     addTool(toolName: $toolName, description: $description, value: $value ) {
+//       toolName
+//       description
+//       value
+//     }
+//   }
+// `;
 export const ADD_TOOL = gql`
-  mutation addTool($toolName: String!, $description: String!, $value: float!) {
-    addTool(name: $toolName, description: $description, value: $value ) {
-      name
-      description
-      value
+  mutation addTool($toolData: toolsInput) {
+    addTool(toolData: $toolData) {
+     description
     }
   }
 `;
-
 export const DELETE_TOOL = gql`
   mutation deleteTool($_id: ID) {
     deleteTool(_id: $_id) {

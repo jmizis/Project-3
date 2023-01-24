@@ -14,8 +14,9 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_TOOL= gql`
-  query getTool {
-    tool {
+{
+   tools {
+   
       _id
       toolName
       description
