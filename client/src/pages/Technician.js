@@ -7,8 +7,9 @@ export default function Technician() {
   const [toolState, setToolState] = useState({ toolName: '', description: '', value: ''});
   const [addTool, { error }] = useMutation(ADD_TOOL);
 
-  const { tools } = useQuery(QUERY_TOOL);
-  const toolList = { tools };
+  const { loading, data } = useQuery(QUERY_TOOL);
+
+  const toolList = data?.tools || [];
   console.log(toolList);
 
 const handleFormChange = (event) => {
@@ -27,7 +28,7 @@ const handleFormSubmit = async (event) => {
   try {
     const { data } = await addTool({
       variables: {
-        ...toolState
+        toolData: {...toolState}
       }
     });
     setToolState(data.addTool._id);
@@ -70,7 +71,8 @@ const handleFormSubmit = async (event) => {
           <label className="flex mx-auto text-white p-5">Price: 
             <input className="flex mx-auto space-x-20 text-black"
                 placeholder="denote value"
-                type='number'
+                type='text'
+                
                 name='value'
                 value={toolState.value}
                 onChange={handleFormChange}  
@@ -87,6 +89,16 @@ const handleFormSubmit = async (event) => {
         <div className="grid container mx-auto content-center text-2xl w-3/5 justify-center p-5">
           your tool list
           
+        </div>
+        <div className= "toolList">
+          {
+            toolList.map(tool=>{
+              return (
+              <div>
+                <h2>{tool.toolName}</h2>
+              </div>
+             ) })
+          }
         </div>
       </div>
   

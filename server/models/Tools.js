@@ -16,7 +16,7 @@ const toolSchema = new Schema({
     },
   
   value: {
-      type: Number,
+      type: String,
       required: true
     },
   

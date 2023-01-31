@@ -6,17 +6,22 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    tool: [Tools]
+    
+    
   }
 
 
   type Tools {
-    _id: ID!
-    toolName: String!
+    _id: ID
+    toolName: String
     description: String
-    value: Float
+    value: String
   }
-
+input toolsInput{
+  toolName: String
+  description: String
+    value: String
+}
   type Auth {
     token: ID!
     user: User
@@ -25,7 +30,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    tools(toolName: String, description: String, value: Float): [Tools]
+    tools: [Tools]
   }
 
   type Mutation {
@@ -35,12 +40,12 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    addTool(toolName: String!, description: String!, value: Float!): User
+    addTool(toolData: toolsInput): Tools
 
     deleteTool(_id: ID): User
 
-    updateTool(toolName: String!, description: String!, value: Float!): User
+    updateTool(toolName: String!, description: String!, value: String!): User
   }
 `;
-
+// addTool(toolName: String!, description: String!, value: Float!): User
 module.exports = typeDefs;

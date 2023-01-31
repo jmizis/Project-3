@@ -8,8 +8,10 @@ const resolvers = {
         users: async () => {
             return User.find().populate('Tools');
         },
-        tools: async (parent, {_id}, content) => {
-            return Tools.findOne({ _id }).populate('Tools')
+        tools: async (parent,  content) => {
+    const findTools = await Tools.find()
+           console.log(findTools)
+           return findTools
         }
     },
 
@@ -22,22 +24,24 @@ const resolvers = {
         },
 
         // takes args/ finds user context/pushes new tool object into selected users tool array
-        addTool: async (parent, { tools }, context) => {
+        addTool: async (parent, { toolData }, context) => {
             if (context.user){
-                const toolAdd = await Tools.create({
-                    toolName,
-                    description,
-                    value,
-                }) 
-                
-                await User.findByIdAndUpdate(
-                    {_id: context.user._id},
-                    {$addToSet: {tools: tools._id}},
-                    {new: true}
-
+                const addTool = await Tools.create(
+                    // toolName,
+                    // description,
+                    // value,
+                    toolData
                 ) 
-                return toolAdd;
+                
+                // await User.findByIdAndUpdate(
+                //     {_id: context.user._id},
+                //     {$addToSet: {tools: tools._id}},
+                //     {new: true}
+
+                // ) 
+                return addTool;
             }
+            
             
         },
 
